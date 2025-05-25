@@ -58,3 +58,80 @@ export const updatePasswordById = async (uid, newPassword) => {
     };
   }
 };
+
+// Hoteles
+export const createHotel = async (formData) => {
+  try {
+    const res = await apiClient.post("/createHotel", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    return { data: res.data };
+  } catch (e) {
+    return {
+      error: true,
+      message: e?.response?.data?.message || "Error creating hotel",
+    };
+  }
+};
+
+export const getHotels = async () => {
+  try {
+    const res = await apiClient.get("/getHotels");
+    return { data: res.data };
+  } catch (e) {
+    return {
+      error: true,
+      message: e?.response?.data?.message || "Error fetching hotels",
+    };
+  }
+};
+
+export const getHotelById = async (hid) => {
+  try {
+    const res = await apiClient.get(`/getHotelById/${hid}`);
+    return { data: res.data };
+  } catch (e) {
+    return {
+      error: true,
+      message: e?.response?.data?.message || "Error fetching hotel by ID",
+    };
+  }
+};
+
+export const updateHotel = async (hid, hotelData) => {
+  try {
+    const res = await apiClient.put(`/updateHotel/${hid}`, hotelData);
+    return { data: res.data };
+  } catch (e) {
+    return {
+      error: true,
+      message: e?.response?.data?.message || "Error updating hotel",
+    };
+  }
+};
+
+export const deleteHotel = async (hid) => {
+  try {
+    const res = await apiClient.delete(`/deleteHotel/${hid}`);
+    return { data: res.data };
+  } catch (e) {
+    return {
+      error: true,
+      message: e?.response?.data?.message || "Error deleting hotel",
+    };
+  }
+};
+
+export const getReservations = async () => {
+  try {
+    const res = await apiClient.get("/getReservations");
+    return { data: res.data };
+  } catch (e) {
+    return {
+      error: true,
+      message: e?.response?.data?.message || "Error fetching reservations",
+    };
+  }
+};

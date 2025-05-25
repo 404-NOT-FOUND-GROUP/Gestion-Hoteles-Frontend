@@ -20,9 +20,12 @@ export const useLoginUser = () => {
 
     try {
       const response = await loginRequest(form);
+      const { token, role } = response.data.userDetails;
 
+      localStorage.setItem("token", token);
+      localStorage.setItem("role", role);
       localStorage.setItem("user", JSON.stringify(response.data.userDetails));
-      localStorage.setItem("token", response.data.userDetails.token);
+      
       navigate("/dashboard");
     } catch (error) {
       const errorMessage =

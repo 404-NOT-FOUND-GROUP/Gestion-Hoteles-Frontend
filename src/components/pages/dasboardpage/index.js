@@ -1,1 +1,1 @@
-export * from "./Dashboard404.jsx";
+export * from "./Dashboard404.jsx"

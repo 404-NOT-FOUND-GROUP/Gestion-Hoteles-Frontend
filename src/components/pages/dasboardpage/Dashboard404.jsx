@@ -18,7 +18,6 @@ export const Dashboard404 = () => {
               <p className="text-muted">Soluciones inteligentes para la industria hotelera</p>
             </div>
 
-            {/* Sección logo y nombre */}
             <div className="row justify-content-center mb-5">
               <div className="col-lg-10 d-flex flex-column flex-md-row align-items-center bg-white rounded shadow p-4">
                 <img
