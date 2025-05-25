@@ -1,4 +1,4 @@
-import {Ejemplo} from "./components/pages/dasboardpage";
+import { Dashboard404 } from "./components/pages/dasboardpage/Dashboard404.jsx";
 import { Register } from "./components/pages/auth/Register.jsx";
 import { Login } from "./components/pages/auth/Login";
 import { ContraseñaOlvidada } from "./components/pages/auth/ContraseñaOlvidada"
@@ -9,6 +9,6 @@ export const routes = [
     {path: '/register', element: <Register/>},
     {path: '/olvido', element: <ContraseñaOlvidada/>},
     {path: '/actualiza', element: <ActualizaContraseña/>},
-    {path: '/dashboard', element: <Ejemplo/>},
+    {path: '/dashboard', element: <Dashboard404/>},
     
 ]
