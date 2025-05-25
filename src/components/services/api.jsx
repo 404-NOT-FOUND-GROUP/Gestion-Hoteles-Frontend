@@ -1,0 +1,60 @@
+import axios from "axios";
+
+const apiClient = axios.create({
+baseURL: "http://localhost:3000/GestionHoteles/v1",
+  timeout: 5000,
+  httpsAgent: false,
+});
+
+apiClient.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      config.headers["Authorization"] = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
+
+// Auth
+export const login = (data) => {
+    return apiClient.post("/auth/login", data);
+};
+
+export const register = async (data) => {
+    try {
+    return await apiClient.post("/auth/register", data);
+    } catch (e) {
+    return {
+        error: true,
+        e,
+    };
+    }
+};
+
+export const findByEmail = async (email) => {
+  try {
+    const res = await apiClient.post("/auth/findByEmail", { user: email });
+    return {data: res.data};
+  } catch (e) {
+    return {
+      error: true,
+      message: e?.response?.data?.message || "Error finding user",
+    };
+  }
+};
+
+export const updatePasswordById = async (uid, newPassword) => {
+  try {
+    const res = await apiClient.put(`/auth/updatePasswordById/${uid}`, {
+      password: newPassword,
+    });
+    return {data: res.data};
+  } catch (e) {
+    return {
+      error: true,
+      message: e?.response?.data?.message || "Error updating password",
+    };
+  }
+};

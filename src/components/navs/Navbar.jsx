@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./navbar.css"
 
 const NavLogo = () => {
@@ -16,6 +17,7 @@ const NavLogo = () => {
 };
 
 export const Navbar = () => {
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     localStorage.clear();

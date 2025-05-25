@@ -1,7 +1,7 @@
-import { Navbar } from "../navs/Navbar";
-import { Sidebar } from "../navs/Sidebar";
+import { Navbar } from "../../navs";
+import { Sidebar } from "../../navs";
 
-export const MovementsList = () => {
+export const Ejemplo = () => {
   
   return (
     <div>
