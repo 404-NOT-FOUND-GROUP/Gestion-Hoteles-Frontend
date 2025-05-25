@@ -1,5 +1,5 @@
-import { Dashboard404 } from "./components/pages/dasboardpage";
-import { Login } from "./components/pages/auth/Login";
+import { Dashboard404 } from "./components/pages/dashboardpage";
+import { Login } from "./components/pages/auth";
 import { Content } from "./components/protectedRoutes";
 
 export const routes = [
