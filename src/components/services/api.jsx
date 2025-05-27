@@ -159,3 +159,27 @@ export const createReservationEvent = async (eid, formData) => {
     };
   }
 };
+
+export const listReservationEvent = async () => {
+  try {
+    const res = await apiClient.get("/reservationEvent/getListReservationsEventByUser");
+    return { data: res.data };
+  } catch (e) {
+    return {
+      error: true,
+      message: e?.response?.data?.msg || "Error al obtener reservaciones",
+    };
+  }
+};
+
+export const cancelReservationEvent = async (rid) => {
+  try {
+    const res = await apiClient.delete(`/reservationEvent/cancelReservationEvent/${rid}`);
+    return { data: res.data };
+  } catch (e) {
+    return {
+      error: true,
+      message: e?.response?.data?.msg || "Error al cancelar la reservación",
+    };
+  }
+}

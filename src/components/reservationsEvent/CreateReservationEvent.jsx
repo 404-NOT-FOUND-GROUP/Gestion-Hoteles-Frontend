@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { Navbar } from "../navs";
 import { Sidebar } from "../navs";
 import { useCreateReservationEvent } from "../shared/hooks/useCreateReservationEvent.jsx";
-import { useListEvent } from "../shared/hooks/useListEvent.jsx";
+import { useListEvent } from "../shared/hooks/useListEventOpcion.jsx";
 
 export const CreateReservationEvent = () => {
   const { form, isLoading, handleChange, handleSubmit } = useCreateReservationEvent();
