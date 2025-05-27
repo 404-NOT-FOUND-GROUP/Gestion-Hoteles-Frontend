@@ -1,11 +1,18 @@
-import React, {useState} from 'react'
-import {useRoomsPDF} from '../shared/hooks/useRoomsPDF'
-import { Navbar } from '../navs/Navbar'
-import { Sidebar } from '../navs/Sidebar'
+import React, { useEffect, useState } from 'react';
+import { useRoomsPDF } from '../shared/hooks/useRoomsPDF';
+import { Navbar } from '../navs/Navbar';
+import { Sidebar } from '../navs/Sidebar';
+import { useReservationRoomOpcion } from '../shared/hooks/useReservationRoomOpcion';
 
 export const FacturaRooms = () => {
-  const [id, setId] = useState('');
+  const [selectedReservation, setSelectedReservation] = useState('');
   const { pdfUrl, loading, error, fetchPDF, downloadPDF, printPDF } = useRoomsPDF();
+  const { reservationRooms, isLoading: loadingReservations, fetchReservationRooms } = useReservationRoomOpcion();
+
+  useEffect(() => {
+    fetchReservationRooms();
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <>
@@ -33,18 +40,28 @@ export const FacturaRooms = () => {
           <h3 className="mb-4">🛏️ Generar Factura de Habitación</h3>
 
           <div className="mb-4 d-flex justify-content-center align-items-center gap-3 flex-wrap">
-            <input
-              type="text"
+            <select
               className="form-control"
               style={{ width: '400px', maxWidth: '100%' }}
-              placeholder="Ingrese ID de reservación"
-              value={id}
-              onChange={(e) => setId(e.target.value)}
-            />
+              value={selectedReservation}
+              onChange={e => setSelectedReservation(e.target.value)}
+              disabled={loadingReservations}
+            >
+              <option value="">-- Selecciona una reservación --</option>
+              {reservationRooms.length === 0 && !loadingReservations && (
+                <option value="">No hay reservaciones disponibles</option>
+              )}
+              {reservationRooms.map(room => (
+                <option key={room._id} value={room._id}>
+                  {room.room ? `Habitación ${room.room.number} - 
+                  Hotel ${room.room.hotel}` : `Reservación ${room._id}`}
+                </option>
+              ))}
+            </select>
             <button
               className="btn btn-primary"
-              onClick={() => fetchPDF(id)}
-              disabled={loading || !id}
+              onClick={() => fetchPDF(selectedReservation)}
+              disabled={loading || !selectedReservation}
             >
               {loading ? 'Generando PDF...' : 'Generar PDF'}
             </button>

@@ -428,3 +428,21 @@ export const findUserById = async (uid) => {
     };
   }
 };
+
+export const getListReservationRooms = async () => {
+  try {
+    const response = await apiClient.get("/reservationRoom/getListReservationsRoomByUser");
+    return { data: response.data };
+  } catch (error) {
+    return { error: true, message: error?.response?.data?.message || "Error al obtener reservaciones de habitaciones" };
+  }
+};
+
+export const getListReservationEvents = async () => {
+  try {
+    const response = await apiClient.get("/reservationEvent/getListReservationsEventByUser");
+    return { data: response.data };
+  } catch (error) {
+    return { error: true, message: error?.response?.data?.message || "Error al obtener reservaciones de eventos" };
+  }
+}
