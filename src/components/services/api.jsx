@@ -141,7 +141,7 @@ export const createHotel = async (formData) => {
 
 export const getHotels = async () => {
   try {
-    const res = await apiClient.get("/getHotels");
+    const res = await apiClient.get("/hotel/getHotels");
     return { data: res.data };
   } catch (e) {
     return {

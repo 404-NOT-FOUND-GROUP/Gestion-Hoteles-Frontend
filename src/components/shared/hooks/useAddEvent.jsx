@@ -1,16 +1,18 @@
 import { useState, useCallback } from "react";
-import { createEvent } from "../../services"
+import { createEvent } from "../../services";
 import toast from "react-hot-toast";
 
+export const initialForm = {
+  name: "",
+  hotel: "",
+  date: "",
+  type: "",
+  resources: [],
+  services: [],
+};
+
 export const useAddEvent = () => {
-  const [form, setForm] = useState({
-    name: "",
-    hotel: "",
-    date: "",
-    type: "",
-    resources: [],
-    services: [],
-  });
+  const [form, setForm] = useState(initialForm);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -25,15 +27,28 @@ export const useAddEvent = () => {
           : prev.resources.filter((r) => r !== value),
       }));
     } else {
-      setForm({ ...form, [name]: value });
+      setForm((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
     }
   };
 
+  // Si necesitas que reciba argumentos, puedes agregarlo aquí
   const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
     setIsLoading(true);
     setError("");
     setSuccess("");
+
+    // Validación de hotel (ObjectId de 24 caracteres hexadecimales)
+    if (!form.hotel || !/^[a-f\d]{24}$/i.test(form.hotel)) {
+      setIsLoading(false);
+      setError("Debes seleccionar un hotel válido.");
+      toast.error("Debes seleccionar un hotel válido.");
+      return;
+    }
+
     try {
       const response = await createEvent(form);
 
@@ -44,14 +59,7 @@ export const useAddEvent = () => {
       if (response?.data?.status === "success") {
         setSuccess(response.data.message || "Evento creado correctamente");
         toast.success(response.data.message || "Evento creado correctamente");
-        setForm({
-          name: "",
-          hotel: "",
-          date: "",
-          type: "",
-          resources: [],
-          services: [],
-        });
+        setForm(initialForm);
       } else {
         throw new Error(response?.data?.message || "Respuesta inválida del servidor");
       }

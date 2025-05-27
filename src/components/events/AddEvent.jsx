@@ -1,10 +1,17 @@
-import React from "react";
-import { useAddEvent } from "../shared/hooks/useAddEvent"
+import React, { useEffect } from "react";
+import { useAddEvent } from "../shared/hooks/useAddEvent";
 import { Navbar } from "../navs/Navbar";
 import { Sidebar } from "../navs/Sidebar";
+import { useHotelOpcion } from "../shared/hooks/useHotelOpcion";
 
 export const AddEvent = () => {
   const { form, isLoading, error, success, handleChange, handleSubmit } = useAddEvent();
+  const { hotels, isLoading: loadingHotels, fetchHotels } = useHotelOpcion();
+
+  useEffect(() => {
+    fetchHotels();
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <>
@@ -45,15 +52,25 @@ export const AddEvent = () => {
                 />
               </div>
               <div className="mb-3">
-                <label className="form-label">ID del Hotel</label>
-                <input
-                  type="text"
+                <label className="form-label">Hotel</label>
+                <select
                   className="form-control"
                   name="hotel"
                   value={form.hotel}
                   onChange={handleChange}
                   required
-                />
+                  disabled={loadingHotels}
+                >
+                  <option value="">-- Selecciona un hotel --</option>
+                  {hotels.length === 0 && !loadingHotels && (
+                    <option value="">No hay hoteles disponibles</option>
+                  )}
+                  {hotels.map(hotel => (
+                    <option key={hotel.hid} value={hotel.hid}>
+                      {hotel.name}
+                    </option>
+                  ))}
+                </select>
               </div>
               <div className="mb-3">
                 <label className="form-label">Fecha</label>
