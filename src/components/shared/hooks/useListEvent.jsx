@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { listEvents } from "../../services";
 
-export const useListarEventos = () => {
+export const useListEvent = () => {
   const [eventos, setEventos] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");

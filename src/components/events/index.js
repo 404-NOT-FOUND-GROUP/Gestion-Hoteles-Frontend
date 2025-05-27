@@ -1,2 +1,5 @@
-export {ListarEventos} from './ListarEventos'
+export {ListarEventos} from './ListEvent'
 export { FacturaEvents } from './FacturaEvents'
+export { AgregarEvento } from './AddEvent'
+export { ActualizarEvent } from './UpdateEvent'
+export { EliminarEvent } from './DeleteEvent'

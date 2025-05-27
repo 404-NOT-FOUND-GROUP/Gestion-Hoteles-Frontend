@@ -111,7 +111,7 @@ export const Sidebar = () => {
               data-bs-parent="#sidebarAccordion"
             >
               <div className="accordion-body p-0">
-                <div className="sidebar-list-item" style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }} onClick={() => navigate("/agregar-evento")}>
+                <div className="sidebar-list-item" style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }} onClick={() => navigate("/event/createEvent")}>
                   <span className="sidebar-list-username" style={{ color: "#ffffff" }}>➕ Agregar</span>
                 </div>
                 <div className="sidebar-list-item" style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }} onClick={() => navigate("/listar-eventos")}>

@@ -2,7 +2,7 @@ import { useState, useCallback } from "react";
 import { updateEvent, findEventById } from "../../services";
 import toast from "react-hot-toast";
 
-export const useActualizarEvento = (eid) => {
+export const useUpdateEvent = (eid) => {
   const [form, setForm] = useState({
     name: "",
     hotel: "",

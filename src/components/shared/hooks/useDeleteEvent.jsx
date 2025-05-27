@@ -2,7 +2,7 @@ import { useState } from "react";
 import { deleteEvent } from "../../services";
 import toast from "react-hot-toast";
 
-export const useEliminarEvento = () => {
+export const useDeleteEvent = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");

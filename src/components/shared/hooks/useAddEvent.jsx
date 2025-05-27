@@ -2,7 +2,7 @@ import { useState, useCallback } from "react";
 import { createEvent } from "../../services";
 import toast from "react-hot-toast";
 
-export const useAgregarEvento = () => {
+export const useAddEvent = () => {
   const [form, setForm] = useState({
     name: "",
     hotel: "",

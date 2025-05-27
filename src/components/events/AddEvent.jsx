@@ -1,10 +1,10 @@
 import React from "react";
-import { useAgregarEvento } from "../shared/hooks/useAgregarEvent";
+import { useAddEvent } from "../shared/hooks/useAddEvent";
 import { Navbar } from "../navs/Navbar";
 import { Sidebar } from "../navs/Sidebar";
 
-export const AgregarEvento = () => {
-  const { form, isLoading, error, success, handleChange, handleSubmit } = useAgregarEvento();
+export const AddEvent = () => {
+  const { form, isLoading, error, success, handleChange, handleSubmit } = useAddEvent();
 
   return (
     <>

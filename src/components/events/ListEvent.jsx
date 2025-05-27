@@ -1,11 +1,11 @@
 import React from 'react'
-import { useListarEventos } from '../shared/hooks/useListarEventos'
+import { useListEvent } from '../shared/hooks/useListEvent'
 import { Navbar } from '../navs/Navbar'
 import { Sidebar } from '../navs/Sidebar'
 import { useNavigate } from "react-router-dom";
 
-export const ListarEventos = () => {
-  const { eventos, isLoading, error } = useListarEventos();
+export const ListEvent = () => {
+  const { eventos, isLoading, error } = useListEvent();
   const navigate = useNavigate();
 
   return (
@@ -96,13 +96,13 @@ export const ListarEventos = () => {
                         <td>
                           <button
                             className="btn btn-warning btn-sm me-2"
-                            onClick={() => navigate(`/actualizar-evento/${evento._id}`)}
+                            onClick={() => navigate(`/event/updateEvent/${evento._id}`)}
                           >
                             Editar
                           </button>
                           <button
                             className="btn btn-danger btn-sm"
-                            onClick={() => navigate(`/eliminar-evento/${evento._id}`)}
+                            onClick={() => navigate(`/event/deleteEvent/${evento._id}`)}
                           >
                             Eliminar
                           </button>

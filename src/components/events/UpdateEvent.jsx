@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useActualizarEvento } from "../shared/hooks/useActualizarEvent";
+import { useUpdateEvent } from "../shared/hooks/useUpdateEvent";
 import { Navbar } from "../navs/Navbar";
 import { Sidebar } from "../navs/Sidebar";
 import { useParams } from "react-router-dom";
@@ -14,9 +14,9 @@ const SERVICES = [
   "Servicio de Staff"
 ];
 
-export const ActualizarEvent = () => {
+export const UpdateEvent = () => {
   const { eid } = useParams();
-  const { form, isLoading, error, success, handleChange, handleSubmit, fetchEvento } = useActualizarEvento(eid);
+  const { form, isLoading, error, success, handleChange, handleSubmit, fetchEvento } = useUpdateEvent(eid);
 
   useEffect(() => {
     fetchEvento();

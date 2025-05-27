@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useEliminarEvento } from "../shared/hooks/useEliminarEvent";
+import { useDeleteEvent } from "../shared/hooks/useDeleteEvent";
 import { useParams, useNavigate } from "react-router-dom";
 import { Navbar } from "../navs/Navbar";
 import { Sidebar } from "../navs/Sidebar";
 import { findEventById } from "../services";
 
-export const EliminarEvent = () => {
+export const DeleteEvent = () => {
   const { eid } = useParams();
   const navigate = useNavigate();
-  const { isLoading, error, success, handleDelete } = useEliminarEvento();
+  const { isLoading, error, success, handleDelete } = useDeleteEvent();
 
   const [eventName, setEventName] = useState("");
 
