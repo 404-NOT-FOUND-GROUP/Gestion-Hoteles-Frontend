@@ -1,2 +1,2 @@
-export {ListarRooms} from './ListarRooms'
-export {FacturaRooms} from './FacturaRooms'
+export { ListRoom } from './ListRoom'
+export { RoomInvoice } from './RoomInvoice'

@@ -1,2 +1,2 @@
-export {ListarEventos} from './ListarEventos'
-export { FacturaEvents } from './FacturaEvents'
+export { ListEvents } from './ListEvents'
+export { EventsInvoice } from './EventsInvoice'

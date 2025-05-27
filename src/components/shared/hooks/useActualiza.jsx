@@ -29,7 +29,7 @@ export const useActualizarContraseña = () => {
       const res = await updatePasswordById(uid, newPassword);
       if (res.error) throw new Error(res.message);
       toast.success("Contraseña actualizada correctamente");
-      setTimeout(() => navigate("/login"), 1500);
+      setTimeout(() => navigate("/"), 1500);
     } catch (err) {
       toast.error(err.message || "Error al actualizar la contraseña");
     } finally {

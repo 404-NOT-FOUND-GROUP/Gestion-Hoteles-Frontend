@@ -125,7 +125,7 @@ export const findEventById = async (eid) => {
 // Hoteles
 export const createHotel = async (formData) => {
   try {
-    const res = await apiClient.post("/createHotel", formData, {
+    const res = await apiClient.post("/hotel/createHotel", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
@@ -141,7 +141,7 @@ export const createHotel = async (formData) => {
 
 export const getHotels = async () => {
   try {
-    const res = await apiClient.get("/getHotels");
+    const res = await apiClient.get("/hotel/getHotels");
     return { data: res.data };
   } catch (e) {
     return {
@@ -153,7 +153,7 @@ export const getHotels = async () => {
 
 export const getHotelById = async (hid) => {
   try {
-    const res = await apiClient.get(`/getHotelById/${hid}`);
+    const res = await apiClient.get(`/hotel/getHotelById/${hid}`);
     return { data: res.data };
   } catch (e) {
     return {
@@ -165,7 +165,7 @@ export const getHotelById = async (hid) => {
 
 export const updateHotel = async (hid, hotelData) => {
   try {
-    const res = await apiClient.put(`/updateHotel/${hid}`, hotelData);
+    const res = await apiClient.put(`/hotel/updateHotel/${hid}`, hotelData);
     return { data: res.data };
   } catch (e) {
     return {
@@ -177,7 +177,7 @@ export const updateHotel = async (hid, hotelData) => {
 
 export const deleteHotel = async (hid) => {
   try {
-    const res = await apiClient.delete(`/deleteHotel/${hid}`);
+    const res = await apiClient.delete(`/hotel/deleteHotel/${hid}`);
     return { data: res.data };
   } catch (e) {
     return {
@@ -189,7 +189,7 @@ export const deleteHotel = async (hid) => {
 
 export const getReservations = async () => {
   try {
-    const res = await apiClient.get("/getReservations");
+    const res = await apiClient.get("/hotel/getReservations");
     return { data: res.data };
   } catch (e) {
     return {
@@ -203,7 +203,7 @@ export const getReservations = async () => {
 
 export const createEventReservation = async (eid, data) => {
   try {
-    const res = await apiClient.post(`/createReservationEvent/${eid}`, data);
+    const res = await apiClient.post(`/reservationEvent/createReservationEvent/${eid}`, data);
     return { data: res.data };
   } catch (e) {
     return {
@@ -215,7 +215,7 @@ export const createEventReservation = async (eid, data) => {
 
 export const findEventReservation = async (_id) => {
   try {
-    const res = await apiClient.get(`/findReservationEvent/${_id}`);
+    const res = await apiClient.get(`/reservationEvent/findReservationEvent/${_id}`);
     return { data: res.data };
   } catch (e) {
     return {
@@ -241,7 +241,7 @@ export const generatePDFEvent = async (_id) => {
 
 export const cancelEventReservation = async (_id) => {
   try {
-    const res = await apiClient.delete(`/cancelReservationEvent/${_id}`);
+    const res = await apiClient.delete(`/reservationEvent/cancelReservationEvent/${_id}`);
     return { data: res.data };
   } catch (e) {
     return {
@@ -255,7 +255,7 @@ export const cancelEventReservation = async (_id) => {
 
 export const createReservation = async (rid, data) => {
   try {
-    const res = await apiClient.post(`/createReservationRoom/${rid}`, data);
+    const res = await apiClient.post(`/reservationRoom/createReservationRoom/${rid}`, data);
     return { data: res.data };
   } catch (e) {
     return {
@@ -267,7 +267,7 @@ export const createReservation = async (rid, data) => {
 
 export const findReservation = async (_id) => {
   try {
-    const res = await apiClient.get(`/findReservationRoom/${_id}`);
+    const res = await apiClient.get(`/reservationRoom/findReservationRoom/${_id}`);
     return { data: res.data };
   } catch (e) {
     return {
@@ -293,7 +293,7 @@ export const generatePDF = async (_id) => {
 
 export const cancelReservation = async (_id) => {
   try {
-    const res = await apiClient.delete(`/cancelReservationRoom/${_id}`);
+    const res = await apiClient.delete(`/reservationRoom/cancelReservationRoom/${_id}`);
     return { data: res.data };
   } catch (e) {
     return {
@@ -307,7 +307,7 @@ export const cancelReservation = async (_id) => {
 
 export const createRoom = async (roomData) => {
   try {
-    const res = await apiClient.post("/addRoom", roomData);
+    const res = await apiClient.post("/rooms/addRoom", roomData);
     return { data: res.data };
   } catch (e) {
     return {
@@ -331,7 +331,7 @@ export const listRooms = async () => {
 
 export const getRoomById = async (rid) => {
   try {
-    const res = await apiClient.get(`/findByRoom/${rid}`);
+    const res = await apiClient.get(`/rooms/findByRoom/${rid}`);
     return { data: res.data };
   } catch (e) {
     return {
@@ -343,7 +343,7 @@ export const getRoomById = async (rid) => {
 
 export const updateRoom = async (rid, roomData) => {
   try {
-    const res = await apiClient.put(`/updateRoom/${rid}`, roomData);
+    const res = await apiClient.put(`/rooms/updateRoom/${rid}`, roomData);
     return { data: res.data };
   } catch (e) {
     return {
@@ -355,7 +355,7 @@ export const updateRoom = async (rid, roomData) => {
 
 export const deleteRoom = async (rid) => {
   try {
-    const res = await apiClient.delete(`/deleteRoom/${rid}`);
+    const res = await apiClient.delete(`/rooms/deleteRoom/${rid}`);
     return { data: res.data };
   } catch (e) {
     return {
@@ -369,7 +369,7 @@ export const deleteRoom = async (rid) => {
 
 export const getUsers = async () => {
   try {
-    const res = await apiClient.get("/getUsers");
+    const res = await apiClient.get("/user/getUsers");
     return { data: res.data };
   } catch (e) {
     return {
@@ -381,7 +381,7 @@ export const getUsers = async () => {
 
 export const deleteUser = async (uid) => {
   try {
-    const res = await apiClient.delete(`/deleteUser/${uid}`);
+    const res = await apiClient.delete(`/user/deleteUser/${uid}`);
     return { data: res.data };
   } catch (e) {
     return {
@@ -393,7 +393,7 @@ export const deleteUser = async (uid) => {
 
 export const updateUser = async (uid, userData) => {
   try {
-    const res = await apiClient.put(`/updateUser/${uid}`, userData);
+    const res = await apiClient.put(`/user/updateUser/${uid}`, userData);
     return { data: res.data };
   } catch (e) {
     return {
@@ -405,7 +405,7 @@ export const updateUser = async (uid, userData) => {
 
 export const updatePassword = async (uid, newPassword) => {
   try {
-    const res = await apiClient.patch(`/updatePassword/${uid}`, {
+    const res = await apiClient.patch(`/user/updatePassword/${uid}`, {
       password: newPassword,
     });
     return { data: res.data };
@@ -419,7 +419,7 @@ export const updatePassword = async (uid, newPassword) => {
 
 export const findUserById = async (uid) => {
   try {
-    const res = await apiClient.get(`/findByUser/${uid}`);
+    const res = await apiClient.get(`/user/findByUser/${uid}`);
     return { data: res.data };
   } catch (e) {
     return {
