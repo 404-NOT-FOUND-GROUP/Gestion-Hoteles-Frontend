@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react"
 import { listEvents } from "../../services";
 
 export const useListEvent = () => {

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { useUpdateEvent } from "../shared/hooks/useUpdateEvent";
-import { Navbar } from "../navs/Navbar";
+import { useUpdateEvent } from "../shared/hooks/useUpdateEvent"
+import { Navbar } from "../navs/Navbar"
 import { Sidebar } from "../navs/Sidebar";
 import { useParams } from "react-router-dom";
 

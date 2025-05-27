@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDeleteEvent } from "../shared/hooks/useDeleteEvent";
+import { useDeleteEvent } from "../shared/hooks/useDeleteEvent"
 import { useParams, useNavigate } from "react-router-dom";
 import { Navbar } from "../navs/Navbar";
 import { Sidebar } from "../navs/Sidebar";

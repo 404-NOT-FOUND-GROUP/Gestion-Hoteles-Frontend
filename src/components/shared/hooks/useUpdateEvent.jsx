@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { updateEvent, findEventById } from "../../services";
+import { updateEvent, findEventById } from "../../services"
 import toast from "react-hot-toast";
 
 export const useUpdateEvent = (eid) => {

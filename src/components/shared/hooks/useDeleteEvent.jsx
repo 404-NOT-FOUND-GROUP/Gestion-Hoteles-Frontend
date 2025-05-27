@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { deleteEvent } from "../../services";
+import { deleteEvent } from "../../services"
 import toast from "react-hot-toast";
 
 export const useDeleteEvent = () => {

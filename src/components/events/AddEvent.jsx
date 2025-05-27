@@ -1,5 +1,5 @@
 import React from "react";
-import { useAddEvent } from "../shared/hooks/useAddEvent";
+import { useAddEvent } from "../shared/hooks/useAddEvent"
 import { Navbar } from "../navs/Navbar";
 import { Sidebar } from "../navs/Sidebar";
 

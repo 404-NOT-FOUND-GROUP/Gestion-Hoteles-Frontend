@@ -2,7 +2,7 @@ import React from 'react'
 import { useListEvent } from '../shared/hooks/useListEvent'
 import { Navbar } from '../navs/Navbar'
 import { Sidebar } from '../navs/Sidebar'
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"
 
 export const ListEvent = () => {
   const { eventos, isLoading, error } = useListEvent();
