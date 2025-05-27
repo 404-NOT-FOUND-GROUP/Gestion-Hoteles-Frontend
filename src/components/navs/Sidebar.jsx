@@ -138,6 +138,36 @@ export const Sidebar = () => {
               </div>
             </div>
           </div>
+          <div className="accordion-item bg-transparent border-0">
+            <h2 className="accordion-header" id="headingHabitaciones">
+              <button
+                className="accordion-button collapsed bg-dark text-white"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseHabitaciones"
+                aria-expanded="false"
+                aria-controls="collapseHabitaciones"
+              >
+                🛏️ Reservación de Habitaciones
+              </button>
+            </h2>
+            <div
+              id="collapseHabitaciones"
+              className="accordion-collapse collapse"
+              aria-labelledby="headingHabitaciones"
+              data-bs-parent="#sidebarAccordion"
+            >
+              <div className="accordion-body p-0">
+                <div
+                  className="sidebar-list-item"
+                  style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }}
+                  onClick={() => window.location.href = "/reservationRoom/List"}
+                >
+                  <span className="sidebar-list-username" style={{ color: "#ffffff" }}>Listar Reservaciones</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>

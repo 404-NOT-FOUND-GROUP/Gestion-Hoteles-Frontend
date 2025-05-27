@@ -5,6 +5,7 @@ import { CreateHotel, UpdateHotel, DeleteHotel, GetHotel} from "../hotels/index.
 import { Unauthorized } from "../pages/unauthorized/Unauthorized.jsx";
 import { CreateReservationEvent } from "../reservationsEvent/CreateReservationEvent.jsx";
 import { ListReservationEvent } from "../reservationsEvent/ListReservationEvent.jsx";
+import { ListReservationRoom } from "../ReservationRoom/ListReservationRoom.jsx";
 
 export const Content = () => {
   return (
@@ -16,6 +17,7 @@ export const Content = () => {
       <Route path="/hotel/GetHotel" element={<GetHotel />} />
       <Route path="/reservationEvent/Create" element={<CreateReservationEvent />} />
       <Route path="/reservationEvent/List" element={<ListReservationEvent />} />
+      <Route path="/reservationRoom/List" element={<ListReservationRoom />} />
 
 
       {/* Rutas protegidas solo para ADMIN */}

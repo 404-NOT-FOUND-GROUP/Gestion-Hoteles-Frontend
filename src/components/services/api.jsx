@@ -183,3 +183,27 @@ export const cancelReservationEvent = async (rid) => {
     };
   }
 }
+
+export const listReservationRoom = async () => {
+  try {
+    const res = await apiClient.get("/reservationRoom/getListReservationsRoomByUser");
+    return { data: res.data };
+  } catch (e) {
+    return {
+      error: true,
+      message: e?.response?.data?.msg || "Error al obtener reservaciones de hotel",
+    };
+  }
+}
+
+export const cancelReservationRoom = async (rid) => {
+  try {
+    const res = await apiClient.delete(`/reservationRoom/cancelReservationRoom/${rid}`);
+    return { data: res.data };
+  } catch (e) {
+    return {
+      error: true,
+      message: e?.response?.data?.msg || "Error al cancelar la reservación de hotel",
+    };
+  }
+}
