@@ -1,7 +1,10 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { ProtectedRoute } from "./ProtectedRoute";
 import { Register, ContraseñaOlvidada, ActualizaContraseña } from "../pages/auth";
-import { CreateHotel, UpdateHotel, DeleteHotel, GetHotel} from "../hotels/index.js";
+import { CreateHotel, UpdateHotel, DeleteHotel, GetHotel} from "../hotels";
+import { ListRoom, RoomInvoice } from "../rooms";
+import { ListEvents, EventsInvoice } from "../events";
+
 import { Unauthorized } from "../pages/unauthorized/Unauthorized.jsx";
 
 export const Content = () => {
@@ -12,7 +15,7 @@ export const Content = () => {
       <Route path="/olvido" element={<ContraseñaOlvidada />} />
       <Route path="/actualiza" element={<ActualizaContraseña />} />
       <Route path="/hotel/GetHotel" element={<GetHotel />} />
-
+      <Route path="/room/list" element={<ListRoom />} />
 
       {/* Rutas protegidas solo para ADMIN */}
       <Route
@@ -34,6 +37,36 @@ export const Content = () => {
         }
       />
 
+      <Route
+        path="/event/list" element={<ProtectedRoute allowedRoles={["ADMIN_ROLE"]}>
+            <ListEvents />
+          </ProtectedRoute>
+        }
+      />
+
+      {/* Rutas protegidas solo para SOPORT */}
+
+      {/* Rutas protegidas solo para USER*/}
+
+      <Route
+        path="/reservation/roomVoice" element={<ProtectedRoute allowedRoles={["ADMIN_ROLE", "USER_ROLE"]}>
+            <RoomInvoice />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/reservation/eventVoice" element={<ProtectedRoute allowedRoles={["ADMIN_ROLE", "USER_ROLE"]}>
+            <EventsInvoice />
+          </ProtectedRoute>
+        }
+      />
+
+      {/* Rutas protegidas solo para USER y ADMIN*/}
+
+
+
+        
       {/* Ruta para acceso no autorizado */}
       <Route path="/unauthorized" element={<Unauthorized />} />
 

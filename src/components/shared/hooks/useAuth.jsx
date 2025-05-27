@@ -4,6 +4,7 @@ export const useAuth = () => {
 
     const isAuthenticated = !!token;
     const isAdmin = role === "ADMIN_ROLE";
+    const isUser = role === "USER_ROLE";
 
-    return { token, role, isAuthenticated, isAdmin };
+    return { token, role, isAuthenticated, isAdmin, isUser};
 };
