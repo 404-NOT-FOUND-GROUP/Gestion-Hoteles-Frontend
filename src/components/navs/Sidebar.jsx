@@ -36,14 +36,15 @@ export const Sidebar = () => {
         }}
       >
         <div className="accordion" id="sidebarAccordion">
-            <div
-              className="sidebar-list-item"
-              style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }}
-              onClick={() => window.location.href = "/dashboard"}
-            >
-              <span className="sidebar-list-username" style={{ color: "#ffffff" }}>🏠 Inicio</span>
-            </div>
-            
+          <div
+            className="sidebar-list-item"
+            style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }}
+            onClick={() => window.location.href = "/dashboard"}
+          >
+            <span className="sidebar-list-username" style={{ color: "#ffffff" }}>🏠 Inicio</span>
+          </div>
+
+          {/* Hoteles */}
           <div className="accordion-item bg-transparent border-0">
             <h2 className="accordion-header" id="headingHoteles">
               <button
@@ -65,42 +66,103 @@ export const Sidebar = () => {
             >
               <div className="accordion-body p-0">
                 {isAdmin && (
-                <div
-                  className="sidebar-list-item"
-                  style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }}
-                  onClick={() => window.location.href = "/hotel/CreateHotel"}
-                >
-                  <span className="sidebar-list-username" style={{ color: "#ffffff" }}>Agregar</span>
-                </div>
+                  <div
+                    className="sidebar-list-item"
+                    style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }}
+                    onClick={() => window.location.href = "/hotel/CreateHotel"}
+                  >
+                    <span className="sidebar-list-username" style={{ color: "#ffffff" }}>Agregar</span>
+                  </div>
                 )}
                 <div
                   className="sidebar-list-item"
                   style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }}
                   onClick={() => window.location.href = "/hotel/GetHotel"}
                 >
-                  <span className="sidebar-list-username" style={{ color: "#ffffff" }}> Listar</span>
+                  <span className="sidebar-list-username" style={{ color: "#ffffff" }}>Listar</span>
                 </div>
                 {isAdmin && (
-                <div
-                  className="sidebar-list-item"
-                  style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }}
-                  onClick={() => window.location.href = "/hotel/UpdateHotel"}
-                >
-                  <span className="sidebar-list-username" style={{ color: "#ffffff" }}>Actualizar</span>
-                </div>
+                  <div
+                    className="sidebar-list-item"
+                    style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }}
+                    onClick={() => window.location.href = "/hotel/UpdateHotel"}
+                  >
+                    <span className="sidebar-list-username" style={{ color: "#ffffff" }}>Actualizar</span>
+                  </div>
                 )}
                 {isAdmin && (
-                <div
-                  className="sidebar-list-item"
-                  style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }}
-                  onClick={() => window.location.href = "/hotel/DeleteHotel"}
-                >
-                  <span className="sidebar-list-username" style={{ color: "#ffffff" }}>Eliminar</span>
-                </div>
+                  <div
+                    className="sidebar-list-item"
+                    style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }}
+                    onClick={() => window.location.href = "/hotel/DeleteHotel"}
+                  >
+                    <span className="sidebar-list-username" style={{ color: "#ffffff" }}>Eliminar</span>
+                  </div>
                 )}
               </div>
             </div>
           </div>
+
+          {/* Habitaciones */}
+          <div className="accordion-item bg-transparent border-0">
+            <h2 className="accordion-header" id="headingRooms">
+              <button
+                className="accordion-button collapsed bg-dark text-white"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseRooms"
+                aria-expanded="false"
+                aria-controls="collapseRooms"
+              >
+                🛏️ Habitaciones
+              </button>
+            </h2>
+            <div
+              id="collapseRooms"
+              className="accordion-collapse collapse"
+              aria-labelledby="headingRooms"
+              data-bs-parent="#sidebarAccordion"
+            >
+              <div className="accordion-body p-0">
+                {isAdmin && (
+                  <div
+                    className="sidebar-list-item"
+                    style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }}
+                    onClick={() => window.location.href = "/room/CreateRoom"}
+                  >
+                    <span className="sidebar-list-username" style={{ color: "#ffffff" }}>Agregar</span>
+                  </div>
+                )}
+                {isAdmin && (
+                  <div
+                    className="sidebar-list-item"
+                    style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }}
+                    onClick={() => window.location.href = "/room/UpdateRoom"}
+                  >
+                    <span className="sidebar-list-username" style={{ color: "#ffffff" }}>Actualizar</span>
+                  </div>
+                )}
+                <div
+                  className="sidebar-list-item"
+                  style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }}
+                  onClick={() => window.location.href = "/room/GetRoom"}
+                >
+                  <span className="sidebar-list-username" style={{ color: "#ffffff" }}>Listar</span>
+                </div>
+                {isAdmin && (
+                  <div
+                    className="sidebar-list-item"
+                    style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }}
+                    onClick={() => window.location.href = "/room/DeleteRoom"}
+                  >
+                    <span className="sidebar-list-username" style={{ color: "#ffffff" }}>Eliminar</span>
+                  </div>
+                  
+                )}
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </>
