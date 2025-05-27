@@ -102,7 +102,7 @@ export const getHotelById = async (hid) => {
 
 export const updateHotel = async (hid, hotelData) => {
   try {
-    const res = await apiClient.put(`/updateHotel/${hid}`, hotelData);
+    const res = await apiClient.put(`/hotel/updateHotel/${hid}`, hotelData);
     return { data: res.data };
   } catch (e) {
     return {
@@ -114,7 +114,7 @@ export const updateHotel = async (hid, hotelData) => {
 
 export const deleteHotel = async (hid) => {
   try {
-    const res = await apiClient.delete(`/deleteHotel/${hid}`);
+    const res = await apiClient.delete(`/hotel/deleteHotel/${hid}`);
     return { data: res.data };
   } catch (e) {
     return {
