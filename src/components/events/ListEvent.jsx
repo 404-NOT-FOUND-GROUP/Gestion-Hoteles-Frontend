@@ -1,34 +1,38 @@
 import React from 'react'
-import { useListEvents } from '../shared/hooks/useListEvents';
+import { useListEvents } from '../shared/hooks/useListEvents'
 import { Navbar } from '../navs/Navbar'
 import { Sidebar } from '../navs/Sidebar'
+import { useNavigate } from "react-router-dom"
+import { useAuth } from '../shared/hooks'
 
-export const ListEvents = () => {
+export const ListEvent = () => {
   const { eventos, isLoading, error } = useListEvents();
+  const navigate = useNavigate();
+  const { isAdmin, isUser } = useAuth();
 
   return (
     <>
       <Navbar />
       <Sidebar />
 
-<div
-  className="d-flex justify-content-center align-items-start w-100"
-  style={{
-    paddingTop: "40px",
-    paddingBottom: "4rem",
-    minHeight: "50px",
-    backgroundColor: "#f8f9fa",
-  }}
->
-  <div
-    style={{
-      width: "130%",   
-      maxWidth: "2200px",
-      minHeight: "30px",
-      margin: "0 auto",
-      boxShadow: "none",
-    }}
-  >
+      <div
+        className="d-flex justify-content-center align-items-start w-100"
+        style={{
+          paddingTop: "40px",
+          paddingBottom: "4rem",
+          minHeight: "50px",
+          backgroundColor: "#f8f9fa",
+        }}
+      >
+        <div
+          style={{
+            width: "130%",
+            maxWidth: "2200px",
+            minHeight: "30px",
+            margin: "0 auto",
+            boxShadow: "none",
+          }}
+        >
           <div className="card-body p-5">
             <h3 className="text-center mb-4">📅 Lista de Eventos</h3>
 
@@ -50,6 +54,7 @@ export const ListEvents = () => {
                       <th>Servicios</th>
                       <th>Precio Recursos</th>
                       <th>Estado</th>
+                      <th>Acciones</th>
                     </tr>
                   </thead>
                   <tbody className="text-center">
@@ -90,6 +95,23 @@ export const ListEvents = () => {
                             {evento.status}
                           </span>
                         </td>
+                        {(isAdmin || isUser) && (
+                        <td>
+                          <button
+                            className="btn btn-warning btn-sm me-2"
+                            onClick={() => navigate("/event/updateEvent", { state: { eid: evento._id } })}
+                          >
+                            Editar
+                          </button>
+
+                          <button
+                            className="btn btn-danger btn-sm"
+                            onClick={() => navigate("/event/deleteEvent", { state: { eid: evento._id } })}
+                          >
+                            Eliminar
+                          </button>
+                        </td>
+                        )}
                       </tr>
                     ))}
                   </tbody>

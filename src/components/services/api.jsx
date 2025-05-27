@@ -205,14 +205,14 @@ export const getReservations = async () => {
 
 // Reservation-Events
 
-export const createEventReservation = async (eid, data) => {
+export const createReservationEvent = async (eid, formData) => {
   try {
-    const res = await apiClient.post(`/reservationEvent/createReservationEvent/${eid}`, data);
+    const res = await apiClient.post(`/reservationEvent/createReservationEvent/${eid}`, formData);
     return { data: res.data };
   } catch (e) {
     return {
       error: true,
-      message: e?.response?.data?.message || "Error creating event reservation",
+      message: e?.response?.data?.msg || "Error creando reservación de evento",
     };
   }
 };

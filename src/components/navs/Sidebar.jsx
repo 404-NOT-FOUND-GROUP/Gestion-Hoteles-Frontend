@@ -137,51 +137,94 @@ export const Sidebar = () => {
           </div>
 
           {/* EVENTOS */}
-           {(isAdmin || isUser) && (
+          {(isAdmin || isUser) && (
           <div className="accordion-item bg-transparent border-0">
-            <h2 className="accordion-header" id="headingEventos">
+  <h2 className="accordion-header" id="headingEventos">
+    <button
+      className="accordion-button collapsed bg-dark text-white"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseEventos"
+      aria-expanded="false"
+      aria-controls="collapseEventos"
+    >
+      🎉 Eventos
+    </button>
+  </h2>
+  <div
+    id="collapseEventos"
+    className="accordion-collapse collapse"
+    aria-labelledby="headingEventos"
+    data-bs-parent="#sidebarAccordion"
+  >
+    <div className="accordion-body p-0">
+      <div
+        className="sidebar-list-item"
+        style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }}
+        onClick={() => window.location.href = "/event/createEvent"}
+      >
+        <span className="sidebar-list-username" style={{ color: "#ffffff" }}>➕ Agregar</span>
+      </div>
+      <div
+        className="sidebar-list-item"
+        style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }}
+        onClick={() => window.location.href = "/event/list"}
+      >
+        <span className="sidebar-list-username" style={{ color: "#ffffff" }}>📋 Listar Eventos</span>
+      </div>
+      <div
+        className="sidebar-list-item"
+        style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }}
+        onClick={() => window.location.href = "/reservation/eventVoice"}
+      >
+        <span className="sidebar-list-username" style={{ color: "#ffffff" }}>🥂 Factura Evento</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+          )}
+          {(isAdmin || isUser) && (
+          <div className="accordion-item bg-transparent border-0">
+            <h2 className="accordion-header" id="headingReservationEventos">
               <button
                 className="accordion-button collapsed bg-dark text-white"
                 type="button"
                 data-bs-toggle="collapse"
-                data-bs-target="#collapseEventos"
+                data-bs-target="#collapseReservationEventos"
                 aria-expanded="false"
-                aria-controls="collapseEventos"
+                aria-controls="collapseReservationEventos"
               >
-                🎉 Eventos
+                🎉 Reservación de Eventos
               </button>
             </h2>
             <div
-              id="collapseEventos"
+              id="collapseReservationEventos"
               className="accordion-collapse collapse"
-              aria-labelledby="headingEventos"
+              aria-labelledby="headingReservationEventos"
               data-bs-parent="#sidebarAccordion"
             >
               <div className="accordion-body p-0">
-                {isAdmin && (
                 <div
                   className="sidebar-list-item"
                   style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }}
-                  onClick={() => window.location.href = "/event/list"}
+                  onClick={() => window.location.href = "/reservationEvent/Create"}
                 >
-                  <span className="sidebar-list-username" style={{ color: "#ffffff" }}>
-                    📋 Listar Eventos
-                  </span>
+                  <span className="sidebar-list-username" style={{ color: "#ffffff" }}>Crear Reservacion</span>
                 </div>
-                )}
                 <div
                   className="sidebar-list-item"
                   style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }}
-                  onClick={() => window.location.href = "/reservation/eventVoice"}
+                  onClick={() => window.location.href = "/reservationEvent/List"}
                 >
-                  <span className="sidebar-list-username" style={{ color: "#ffffff" }}>
-                    🥂 Factura Evento
-                  </span>
+                  <span className="sidebar-list-username" style={{ color: "#ffffff" }}>Listar Reservaciones</span>
                 </div>
               </div>
             </div>
           </div>
           )}
+
+          {/* USUARIOS */}
         </div>
       </div>
     </>

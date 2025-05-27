@@ -4,7 +4,9 @@ import { Register, ContraseñaOlvidada, ActualizaContraseña } from "../pages/au
 import { CreateHotel, UpdateHotel, DeleteHotel, GetHotel} from "../hotels";
 import { ReportReservation } from "../reports/ReportReservation.jsx"
 import { ListRoom, RoomInvoice } from "../rooms";
-import { ListEvents, EventsInvoice } from "../events";
+import { AddEvent, DeleteEvent, UpdateEvent, ListEvent, EventsInvoice,} from "../events";
+import { CreateReservationEvent } from "../reservationsEvent/CreateReservationEvent.jsx";
+
 
 import { Unauthorized } from "../pages/unauthorized/Unauthorized.jsx";
 
@@ -17,6 +19,8 @@ export const Content = () => {
       <Route path="/actualiza" element={<ActualizaContraseña />} />
       <Route path="/hotel/GetHotel" element={<GetHotel />} />
       <Route path="/room/list" element={<ListRoom />} />
+      <Route path="/reservationEvent/Create" element={<CreateReservationEvent />} />
+      
 
       {/* Rutas protegidas solo para ADMIN */}
       <Route
@@ -45,12 +49,6 @@ export const Content = () => {
         }
       />
 
-      <Route
-        path="/event/list" element={<ProtectedRoute allowedRoles={["ADMIN_ROLE"]}>
-            <ListEvents />
-          </ProtectedRoute>
-        }
-      />
 
       {/* Rutas protegidas solo para SOPORT */}
 
@@ -66,6 +64,41 @@ export const Content = () => {
       <Route
         path="/reservation/eventVoice" element={<ProtectedRoute allowedRoles={["ADMIN_ROLE", "USER_ROLE"]}>
             <EventsInvoice />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/reservationEvent/Create" element={<ProtectedRoute allowedRoles={["ADMIN_ROLE", "USER_ROLE"]}>
+            <CreateReservationEvent />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/event/createEvent" element={<ProtectedRoute allowedRoles={["ADMIN_ROLE", "USER_ROLE"]}>
+            <AddEvent />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/event/updateEvent" element={<ProtectedRoute allowedRoles={["ADMIN_ROLE", "USER_ROLE"]}>
+            <UpdateEvent />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/event/deleteEvent" element={<ProtectedRoute allowedRoles={["ADMIN_ROLE", "USER_ROLE"]}>
+            <DeleteEvent />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/event/list" element={<ProtectedRoute allowedRoles={["ADMIN_ROLE", "USER_ROLE"]}>
+            <ListEvent />
           </ProtectedRoute>
         }
       />
