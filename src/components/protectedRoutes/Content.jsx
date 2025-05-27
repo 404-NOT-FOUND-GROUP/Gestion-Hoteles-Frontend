@@ -3,7 +3,7 @@ import { ProtectedRoute } from "./ProtectedRoute";
 import { Register, ContraseñaOlvidada, ActualizaContraseña } from "../pages/auth";
 import { CreateHotel, UpdateHotel, DeleteHotel, GetHotel} from "../hotels";
 import { ReportReservation } from "../reports/ReportReservation.jsx"
-import { ListRoom, RoomInvoice } from "../rooms";
+import { CreateRoom, RoomInvoice, ListRoom, UpdateRoom, DeleteRoom } from "../rooms";
 import { AddEvent, DeleteEvent, UpdateEvent, ListEvent, EventsInvoice,} from "../events";
 import { CreateReservationEvent } from "../reservationsEvent/CreateReservationEvent.jsx";
 
@@ -45,6 +45,25 @@ export const Content = () => {
       <Route
         path="/hotel/Report" element={<ProtectedRoute allowedRoles={["ADMIN_ROLE"]}>
             <ReportReservation />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/room/CreateRoom" element={<ProtectedRoute allowedRoles={["ADMIN_ROLE"]}>
+            <CreateRoom />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/room/UpdateRoom" element={<ProtectedRoute allowedRoles={["ADMIN_ROLE"]}>
+            <UpdateRoom />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/room/DeleteRoom" element={<ProtectedRoute allowedRoles={["ADMIN_ROLE"]}>
+            <DeleteRoom />
           </ProtectedRoute>
         }
       />

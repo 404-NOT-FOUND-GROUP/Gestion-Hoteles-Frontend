@@ -1,2 +1,5 @@
 export { ListRoom } from './ListRoom'
 export { RoomInvoice } from './RoomInvoice'
+export { CreateRoom } from './CreateRoom'
+export { UpdateRoom } from './UpdateRoom'
+export { DeleteRoom } from './DeleteRoom'

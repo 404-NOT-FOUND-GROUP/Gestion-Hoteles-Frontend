@@ -1,10 +1,12 @@
-import React from 'react'
-import { useRoomList } from "../shared/hooks/useRoomList"
-import { Navbar } from '../navs/Navbar'
-import { Sidebar } from '../navs/Sidebar'
+import React from 'react';
+import { useRoomList } from "../shared/hooks/useRoomList";
+import { Navbar } from '../navs/Navbar';
+import { Sidebar } from '../navs/Sidebar';
+import { useNavigate } from 'react-router-dom';
 
 export const ListRoom = () => {
-const { rooms, isLoading, error } = useRoomList();
+  const { rooms, isLoading, error } = useRoomList();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -50,6 +52,7 @@ const { rooms, isLoading, error } = useRoomList();
                       <th>Comodidades</th>
                       <th>Precio</th>
                       <th>Estado</th>
+                      <th>Acciones</th>
                     </tr>
                   </thead>
                   <tbody className="text-center">
@@ -82,6 +85,20 @@ const { rooms, isLoading, error } = useRoomList();
                             >
                               {room.status || "Desconocido"}
                             </span>
+                          </td>
+                          <td>
+                            <button
+                              className="btn btn-warning btn-sm me-2"
+                              onClick={() => navigate("/room/updateRoom", { state: { eid: room._id } })}
+                            >
+                              Editar
+                            </button>
+                            <button
+                              className="btn btn-danger btn-sm"
+                              onClick={() => navigate("/room/deleteRoom", { state: { eid: room._id } })}
+                            >
+                              Eliminar
+                            </button>
                           </td>
                         </tr>
                       );
