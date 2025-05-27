@@ -84,18 +84,8 @@ export const Sidebar = () => {
                 <div
                   className="sidebar-list-item"
                   style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }}
-                  onClick={() => window.location.href = "/hotel/UpdateHotel"}
-                >
-                  <span className="sidebar-list-username" style={{ color: "#ffffff" }}>Actualizar</span>
-                </div>
-                )}
-                {isAdmin && (
-                <div
-                  className="sidebar-list-item"
-                  style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }}
-                  onClick={() => window.location.href = "/hotel/DeleteHotel"}
-                >
-                  <span className="sidebar-list-username" style={{ color: "#ffffff" }}>Eliminar</span>
+                  onClick={() => window.location.href = "/hotel/Report"}>
+                  <span className="sidebar-list-username" style={{ color: "#ffffff" }}> Reporte</span>
                 </div>
                 )}
               </div>

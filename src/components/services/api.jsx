@@ -141,7 +141,7 @@ export const createHotel = async (formData) => {
 
 export const getHotels = async () => {
   try {
-    const res = await apiClient.get("/hotel/getHotels");
+    const res = await apiClient.get("/hotel/getHotels", );
     return { data: res.data };
   } catch (e) {
     return {
@@ -165,7 +165,11 @@ export const getHotelById = async (hid) => {
 
 export const updateHotel = async (hid, hotelData) => {
   try {
-    const res = await apiClient.put(`/hotel/updateHotel/${hid}`, hotelData);
+    const res = await apiClient.put(`/hotel/updateHotel/${hid}`, hotelData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
     return { data: res.data };
   } catch (e) {
     return {
@@ -307,7 +311,11 @@ export const cancelReservation = async (_id) => {
 
 export const createRoom = async (roomData) => {
   try {
-    const res = await apiClient.post("/rooms/addRoom", roomData);
+    const res = await apiClient.post("/rooms/addRoom", roomData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
     return { data: res.data };
   } catch (e) {
     return {
@@ -343,7 +351,11 @@ export const getRoomById = async (rid) => {
 
 export const updateRoom = async (rid, roomData) => {
   try {
-    const res = await apiClient.put(`/rooms/updateRoom/${rid}`, roomData);
+    const res = await apiClient.put(`/rooms/updateRoom/${rid}`, roomData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
     return { data: res.data };
   } catch (e) {
     return {

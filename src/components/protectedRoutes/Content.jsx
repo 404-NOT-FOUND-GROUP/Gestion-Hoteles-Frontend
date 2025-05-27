@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { ProtectedRoute } from "./ProtectedRoute";
 import { Register, ContraseñaOlvidada, ActualizaContraseña } from "../pages/auth";
 import { CreateHotel, UpdateHotel, DeleteHotel, GetHotel} from "../hotels";
+import { ReportReservation } from "../reports/ReportReservation.jsx"
 import { ListRoom, RoomInvoice } from "../rooms";
 import { ListEvents, EventsInvoice } from "../events";
 
@@ -33,6 +34,13 @@ export const Content = () => {
       <Route
         path="/hotel/DeleteHotel" element={<ProtectedRoute allowedRoles={["ADMIN_ROLE"]}>
             <DeleteHotel />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/hotel/Report" element={<ProtectedRoute allowedRoles={["ADMIN_ROLE"]}>
+            <ReportReservation />
           </ProtectedRoute>
         }
       />
