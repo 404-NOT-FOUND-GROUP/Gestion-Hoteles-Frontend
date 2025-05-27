@@ -80,6 +80,13 @@ export const Sidebar = () => {
                 >
                   <span className="sidebar-list-username" style={{ color: "#ffffff" }}> Listar</span>
                 </div>
+                <div
+                  className="sidebar-list-item"
+                  style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }}
+                  onClick={() => window.location.href = "/hotel/Report"}
+                >
+                  <span className="sidebar-list-username" style={{ color: "#ffffff" }}> Reporte</span>
+                </div>
                 {isAdmin && (
                 <div
                   className="sidebar-list-item"

@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { ProtectedRoute } from "./ProtectedRoute";
 import { Register, ContraseñaOlvidada, ActualizaContraseña } from "../pages/auth";
 import { CreateHotel, UpdateHotel, DeleteHotel, GetHotel} from "../hotels/index.js";
+import { ReportReservation } from "../reports/ReportReservation.jsx"
 import { Unauthorized } from "../pages/unauthorized/Unauthorized.jsx";
 
 export const Content = () => {
@@ -12,7 +13,7 @@ export const Content = () => {
       <Route path="/olvido" element={<ContraseñaOlvidada />} />
       <Route path="/actualiza" element={<ActualizaContraseña />} />
       <Route path="/hotel/GetHotel" element={<GetHotel />} />
-
+      <Route path="/hotel/Report" element={<ReportReservation />} />
 
       {/* Rutas protegidas solo para ADMIN */}
       <Route
