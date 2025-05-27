@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-baseURL: "http://localhost:3000/GestionHoteles/v1",
+baseURL: "http://localhost:3000/GestionHoteles/v1/",
   timeout: 5000,
   httpsAgent: false,
 });
@@ -62,7 +62,7 @@ export const updatePasswordById = async (uid, newPassword) => {
 // Hoteles
 export const createHotel = async (formData) => {
   try {
-    const res = await apiClient.post("/createHotel", formData, {
+    const res = await apiClient.post("/hotel/createHotel", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
@@ -78,7 +78,7 @@ export const createHotel = async (formData) => {
 
 export const getHotels = async () => {
   try {
-    const res = await apiClient.get("/getHotels");
+    const res = await apiClient.get("/hotel/getHotels");
     return { data: res.data };
   } catch (e) {
     return {
@@ -126,12 +126,36 @@ export const deleteHotel = async (hid) => {
 
 export const getReservations = async () => {
   try {
-    const res = await apiClient.get("/getReservations");
+    const res = await apiClient.get("/hotel/getReservations");
     return { data: res.data };
   } catch (e) {
     return {
       error: true,
       message: e?.response?.data?.message || "Error fetching reservations",
+    };
+  }
+};
+
+export const getListEvents = async () => {
+  try {
+    const res = await apiClient.get("/event/listEvents");
+    return { data: res.data };
+  } catch (e) {
+    return {
+      error: true,
+      message: e?.response?.data?.message || "Error fetching events",
+    };
+  }
+};
+
+export const createReservationEvent = async (eid, formData) => {
+  try {
+    const res = await apiClient.post(`/reservationEvent/createReservationEvent/${eid}`, formData);
+    return { data: res.data };
+  } catch (e) {
+    return {
+      error: true,
+      message: e?.response?.data?.msg || "Error creando reservación de evento",
     };
   }
 };

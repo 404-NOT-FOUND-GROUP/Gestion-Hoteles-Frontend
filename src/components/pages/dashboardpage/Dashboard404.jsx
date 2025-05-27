@@ -139,7 +139,6 @@ export const Dashboard404 = () => {
                 </div>
               </div>
             </div>
-
             <div className="row mb-5">
               <div className="col-12">
                 <div className="bg-white rounded shadow-sm p-4">

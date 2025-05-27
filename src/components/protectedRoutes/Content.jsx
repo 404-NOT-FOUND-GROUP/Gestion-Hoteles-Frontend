@@ -3,6 +3,7 @@ import { ProtectedRoute } from "./ProtectedRoute";
 import { Register, ContraseñaOlvidada, ActualizaContraseña } from "../pages/auth";
 import { CreateHotel, UpdateHotel, DeleteHotel, GetHotel} from "../hotels/index.js";
 import { Unauthorized } from "../pages/unauthorized/Unauthorized.jsx";
+import { CreateReservationEvent } from "../reservationsEvent/CreateReservationEvent.jsx";
 
 export const Content = () => {
   return (
@@ -12,6 +13,7 @@ export const Content = () => {
       <Route path="/olvido" element={<ContraseñaOlvidada />} />
       <Route path="/actualiza" element={<ActualizaContraseña />} />
       <Route path="/hotel/GetHotel" element={<GetHotel />} />
+      <Route path="/reservationEvent/Create" element={<CreateReservationEvent />} />
 
 
       {/* Rutas protegidas solo para ADMIN */}
