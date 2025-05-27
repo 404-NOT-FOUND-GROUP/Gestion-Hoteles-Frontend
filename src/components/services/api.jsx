@@ -415,10 +415,11 @@ export const updateUser = async (uid, data) => {
   }
 };
 
-export const updatePassword = async (uid, newPassword) => {
+export const updatePassword = async (uid, oldPassword, newPassword) => {
   try {
     const res = await apiClient.patch(`/user/updatePassword/${uid}`, {
-      password: newPassword,
+      oldPassword,
+      newPassword,
     });
     return { data: res.data };
   } catch (e) {
@@ -428,6 +429,7 @@ export const updatePassword = async (uid, newPassword) => {
     };
   }
 };
+
 
 export const findUserById = async (uid) => {
   try {

@@ -10,6 +10,7 @@ import  VerCuenta  from "../users/verCuenta.jsx";
 import  UpdateUser  from "../users/userupdate.jsx";
 
 import { Unauthorized } from "../pages/unauthorized/Unauthorized.jsx";
+import  ChangePassword  from "../users/Updatepassword.jsx";
 
 export const Content = () => {
   return (
@@ -23,6 +24,7 @@ export const Content = () => {
       <Route path="/reservationEvent/Create" element={<CreateReservationEvent />} />
       <Route path="/auth/view/GetHotel" element={<VerCuenta />} />
       <Route path="/auth/updateuser/GetHotel" element={<UpdateUser />} />
+      <Route path="/auth/updatepassword/GetHotel" element={<ChangePassword />} />
       
 
       {/* Rutas protegidas solo para ADMIN */}

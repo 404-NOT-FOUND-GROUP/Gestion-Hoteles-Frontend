@@ -27,7 +27,7 @@ const VerCuenta = () => {
             <span className="sidebar-text">Actualizar Datos</span>
           </button>
 
-          <button onClick={() => (window.location.href = "/cambiar-clave")}>
+          <button onClick={() => (window.location.href = "/auth/updatepassword/GetHotel")}>
             <i className="bi bi-shield-lock"></i>
             <span className="sidebar-text">Cambiar contraseña</span>
           </button>
