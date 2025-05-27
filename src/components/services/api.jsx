@@ -403,9 +403,9 @@ export const deleteUser = async (uid) => {
   }
 };
 
-export const updateUser = async (uid, userData) => {
+export const updateUser = async (uid, data) => {
   try {
-    const res = await apiClient.put(`/user/updateUser/${uid}`, userData);
+    const res = await apiClient.put(`/user/updateUser/${uid}`, data);
     return { data: res.data };
   } catch (e) {
     return {

@@ -1,0 +1,47 @@
+/* UpdateUser.css */
+
+.update-user-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 1.5rem 2rem;
+  background-color: #164360; /* Fondo oscuro */
+  color: white;
+  border-radius: 0.5rem;
+  /* Puedes ajustar el ancho o agregar más estilos aquí */
+}
+
+/* Etiquetas en blanco */
+.update-user-container label {
+  color: white;
+}
+
+/* Botón personalizado */
+.update-user-container button {
+  width: 100%;
+  background-color: white;
+  color: #1f63a7;
+  font-weight: 600;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.update-user-container button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.update-user-container button:hover:not(:disabled) {
+  background-color: #f0f0f0;
+}
+
+/* Para centrar el formulario verticalmente si quieres */
+.centered-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh; /* o 100vh para pantalla completa */
+  padding: 1rem;
+}

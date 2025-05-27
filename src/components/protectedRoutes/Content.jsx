@@ -6,7 +6,8 @@ import { ReportReservation } from "../reports/ReportReservation.jsx"
 import { ListRoom, RoomInvoice } from "../rooms";
 import { AddEvent, DeleteEvent, UpdateEvent, ListEvent, EventsInvoice,} from "../events";
 import { CreateReservationEvent } from "../reservationsEvent/CreateReservationEvent.jsx";
-
+import  VerCuenta  from "../users/verCuenta.jsx";
+import  UpdateUser  from "../users/userupdate.jsx";
 
 import { Unauthorized } from "../pages/unauthorized/Unauthorized.jsx";
 
@@ -20,6 +21,8 @@ export const Content = () => {
       <Route path="/hotel/GetHotel" element={<GetHotel />} />
       <Route path="/room/list" element={<ListRoom />} />
       <Route path="/reservationEvent/Create" element={<CreateReservationEvent />} />
+      <Route path="/auth/view/GetHotel" element={<VerCuenta />} />
+      <Route path="/auth/updateuser/GetHotel" element={<UpdateUser />} />
       
 
       {/* Rutas protegidas solo para ADMIN */}

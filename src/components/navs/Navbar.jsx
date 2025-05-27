@@ -27,9 +27,15 @@ export const Navbar = () => {
   return (
 <nav className="navbar navbar-dark custom-navbar fixed-top d-flex justify-content-between align-items-center px-4">
       <NavLogo />
-      <button style={{ color: "black", backgroundColor: "white"}} onClick={handleLogout} className="btn btn-outline-dark">
-        Cerrar sesión
-      </button>
+
+        <button
+          style={{ color: "black", backgroundColor: "white" }}
+          onClick={() => navigate("/auth/view/GetHotel")}
+          className="btn btn-outline-dark"
+        >
+          <i className="bi bi-person"></i>
+        </button>
+
     </nav>
   );
-};
+};   
