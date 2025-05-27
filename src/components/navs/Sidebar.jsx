@@ -111,18 +111,13 @@ export const Sidebar = () => {
               data-bs-parent="#sidebarAccordion"
             >
               <div className="accordion-body p-0">
-                <div className="sidebar-list-item" style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }}>
+                <div className="sidebar-list-item" style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }} onClick={() => navigate("/agregar-evento")}>
                   <span className="sidebar-list-username" style={{ color: "#ffffff" }}>➕ Agregar</span>
                 </div>
                 <div className="sidebar-list-item" style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }} onClick={() => navigate("/listar-eventos")}>
                   <span className="sidebar-list-username" style={{ color: "#ffffff" }}>📋 Listar Eventos</span>
                 </div>
-                <div className="sidebar-list-item" style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }}>
-                  <span className="sidebar-list-username" style={{ color: "#ffffff" }}>🔄 Actualizar</span>
-                </div>
-                <div className="sidebar-list-item" style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }}>
-                  <span className="sidebar-list-username" style={{ color: "#ffffff" }}>❌ Eliminar</span>
-                </div>
+                
                 <div className="sidebar-list-item" style={{ cursor: "pointer", textAlign: "center", paddingRight: "1rem" }}  onClick={() => navigate("/factura-events")}>
                   <span className="sidebar-list-username" style={{ color: "#ffffff" }}>🥂 Factura Evento</span>
                 </div>
