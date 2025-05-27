@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { Navbar } from "../navs";
 import { Sidebar } from "../navs";
 import { useCreateReservationEvent } from "../shared/hooks/useCreateReservationEvent.jsx";
@@ -66,7 +65,7 @@ export const CreateReservationEvent = () => {
                 <option value="">-- Selecciona un evento --</option>
                 {events.map(event => (
                   <option key={event._id} value={event._id}>
-                    {event.name} ({event.type}) - {event.date}
+                    {event.name} ({event.type})
                   </option>
                 ))}
               </select>
