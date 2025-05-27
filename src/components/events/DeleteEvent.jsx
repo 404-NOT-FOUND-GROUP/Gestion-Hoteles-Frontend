@@ -19,8 +19,9 @@ export const DeleteEvent = () => {
       if (!eid) return;
       try {
         const response = await findEventById(eid);
-        if (response?.data?.event?.name) {
-          setEventName(response.data.event.name);
+        const event = response?.data?.event;
+        if (event?.name) {
+          setEventName(event.name);
         }
       } catch {
         setEventName("");
@@ -31,7 +32,6 @@ export const DeleteEvent = () => {
 
   useEffect(() => {
     if (success) {
-      // Redirigir a /eventos después de un pequeño delay para mostrar mensaje
       const timer = setTimeout(() => {
         navigate("/eventos");
       }, 1200);
@@ -46,10 +46,7 @@ export const DeleteEvent = () => {
         <Sidebar />
         <div className="container mt-5 text-center">
           <h4 className="text-danger">No se proporcionó ID del evento.</h4>
-          <button
-            className="btn btn-secondary mt-3"
-            onClick={() => navigate(-1)}
-          >
+          <button className="btn btn-secondary mt-3" onClick={() => navigate(-1)}>
             Volver
           </button>
         </div>
@@ -70,8 +67,8 @@ export const DeleteEvent = () => {
           {error && <p className="text-danger text-center mt-2">{error}</p>}
           {success && <p className="text-success text-center mt-2">{success}</p>}
           <p className="text-center">
-            ¿Estás seguro de que deseas eliminar el evento
-            <strong> {eventName ? `"${eventName}"` : ""}</strong>?
+            ¿Estás seguro de que deseas eliminar el evento{" "}
+            <strong>{eventName ? `"${eventName}"` : ""}</strong>?
           </p>
           <button
             className="btn btn-danger w-100 mb-2"

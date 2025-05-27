@@ -3,6 +3,7 @@ import { useUpdateEvent } from "../shared/hooks/useUpdateEvent";
 import { Navbar } from "../navs/Navbar";
 import { Sidebar } from "../navs/Sidebar";
 import { useLocation } from "react-router-dom";
+import { useHotelOpcion } from "../shared/hooks/useHotelOpcion";
 
 const SERVICES = [
   "Servicio de Meseros",
@@ -28,8 +29,11 @@ export const UpdateEvent = () => {
     fetchEvento
   } = useUpdateEvent(eid);
 
+  const { hotels, isLoading: loadingHotels, fetchHotels } = useHotelOpcion();
+
   useEffect(() => {
     if (eid) fetchEvento();
+    fetchHotels();
     // eslint-disable-next-line
   }, [eid]);
 
@@ -86,15 +90,25 @@ export const UpdateEvent = () => {
                 />
               </div>
               <div className="mb-3">
-                <label className="form-label">ID del Hotel</label>
-                <input
-                  type="text"
+                <label className="form-label">Hotel</label>
+                <select
                   className="form-control"
                   name="hotel"
                   value={form.hotel}
                   onChange={handleChange}
                   required
-                />
+                  disabled={loadingHotels}
+                >
+                  <option value="">-- Selecciona un hotel --</option>
+                  {hotels.length === 0 && !loadingHotels && (
+                    <option value="">No hay hoteles disponibles</option>
+                  )}
+                  {hotels.map(hotel => (
+                    <option key={hotel.hid} value={hotel.hid}>
+                      {hotel.name}
+                    </option>
+                  ))}
+                </select>
               </div>
               <div className="mb-3">
                 <label className="form-label">Fecha</label>
